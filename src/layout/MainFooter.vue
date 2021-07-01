@@ -9,7 +9,7 @@
         <ul>
           <li>
             <a href="https://www.creative-tim.com">
-              Creative Tim
+              Guangya Zhu
             </a>
           </li>
           <li>
@@ -31,7 +31,7 @@
       </nav>
       <div class="copyright">
         &copy; {{ year }}, made with <md-icon>favorite</md-icon> by
-        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>
+        <a href="http://jungle.visualstudio.com" target="_blank">Guangya Zhu</a>
         for a better web.
       </div>
     </div>

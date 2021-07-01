@@ -9,14 +9,13 @@
             <img :src="leaf2" alt="leaf2" class="leaf2" v-show="leafShow" />
             <img :src="leaf1" alt="leaf1" class="leaf1" v-show="leafShow" />
             <div class="brand">
-              <h1>Vue Material Kit</h1>
-              <h3>A Badass Vue.js UI Kit made with Material Design.</h3>
+              <h1>{{ lunch }}</h1>
             </div>
           </div>
         </div>
       </div>
     </parallax>
-    <div class="main main-raised">
+    <!-- <div class="main main-raised">
       <div class="section section-basic">
         <div class="container">
           <div class="title">
@@ -262,7 +261,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -279,15 +278,7 @@ import { LoginCard } from "@/components";
 
 export default {
   components: {
-    BasicElements,
-    Navigation,
-    SmallNavigation,
-    Tabs,
-    NavPills,
-    Notifications,
-    TypographyImages,
-    JavascriptComponents,
-    LoginCard
+    
   },
   name: "index",
   bodyClass: "index-page",
@@ -330,7 +321,8 @@ export default {
       firstname: null,
       email: null,
       password: null,
-      leafShow: false
+      leafShow: false,
+      lunch: null,
     };
   },
   methods: {
@@ -354,9 +346,10 @@ export default {
       };
     }
   },
-  mounted() {
-    this.leafActive();
-    window.addEventListener("resize", this.leafActive);
+  beforeMount() {
+    axios
+      .get('https://whattoeatforlunch.azurewebsites.net/api/lunch?code=cv5TmSNxx9RE3SCjfNqI0wPkuENo97ZBt9PqB8fGkwDYn3yyOZJEaA==')
+      .then(response => (this.lunch = response.data))
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.leafActive);

@@ -15,12 +15,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import MaterialKit from "./plugins/material-kit";
 
 Vue.config.productionTip = false;
 
 Vue.use(MaterialKit);
+Vue.use(VueAxios, axios)
 
 const NavbarStore = {
   showNavbar: false
